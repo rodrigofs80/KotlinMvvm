@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="materia" type="br.com.projkotlinexamples.ui.model.Materia" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="@{materia.titulo}"
+            android:lines="2"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:transitionName="@{@string/transition_name(materia.id)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/subtitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="@{materia.texto}"
+            android:transitionName="@{@string/transition_description(materia.id)}"
+            app:layout_constraintTop_toBottomOf="@+id/titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:lines="2"
+            />
+
+        <TextView
+            android:id="@+id/autor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_blue_dark"
+            android:text="@{(materia.autores.size() > 0) ? `POR ` + materia.autores.get(0) : null}"
+            app:layout_constraintTop_toBottomOf="@+id/subtitulo"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textSize="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/watch"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/ic_watch_later_black_24dp"
+            app:layout_constraintTop_toBottomOf="@+id/autor"
+            android:layout_marginTop="14dp"
+            app:layout_constraintRight_toLeftOf="@+id/hora"
+            />
+
+        <TextView
+            android:id="@+id/hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{materia.formatData(materia.atualizadoEm)}"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@+id/autor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:textSize="12dp"
+            />
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:transitionName="@{@string/transition_avatar(materia.id)}"
+            app:imageFromUrl="@{(materia.imagens.size() > 0) ? materia.imagens.get(0).url : null}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{materia.texto}"
+            android:lines="2"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar"
+            app:layout_constraintStart_toStartOf="@+id/avatar"
+            app:layout_constraintEnd_toEndOf="@+id/avatar"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="10dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

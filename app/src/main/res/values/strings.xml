@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MVVM</string>
+    <string name="stub_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="failed">Erro ao carregar lista!</string>
+    <string name="empty">Lista vazia!</string>
+
+    <string name="transition_avatar">avatar %d</string>
+    <string name="transition_name">name %d</string>
+    <string name="transition_description">description %d</string>
+</resources>
